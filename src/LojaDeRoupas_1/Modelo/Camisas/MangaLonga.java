@@ -1,15 +1,32 @@
 package LojaDeRoupas_1.Modelo.Camisas;
 
+import LojaDeRoupas_1.Pedido;
+
+
 public class MangaLonga extends Camisa{
 	
-	private static final float preco = 75.0f;
-    private static final String descricao = "MangaLonga";
+	private static final float preco = 120.00f;
+    private static final String descricao = "Camisa MangaLonga";
+    private static String cor;
+    private static String tamanho;
+    private static String genero;
+    private static String info;
     
-    public float getPreco(){
-        return this.preco;
+    
+    //talvez fazer para recerber um objeto "pedido" e as informacoes vem dentro dele
+    // pedido.cor , pedido.tamanho e pedido.genero
+    public MangaLonga(Pedido pedido) {
+    	this.cor = pedido.cor;
+    	this.tamanho = pedido.tamanho;
+    	this.genero = pedido.genero;
+    	this.info = "Tipo: " + descricao + "\nPreço R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\n";
     }
-
-    public String getDescricao(){
-        return this.descricao;
+    public String getGenero() {
+    	return this.genero;
     }
+    
+    public String getInfo() {
+    	return this.info;
+    }
+    
 }
