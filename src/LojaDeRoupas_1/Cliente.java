@@ -2,21 +2,50 @@ package LojaDeRoupas_1;
 
 import LojaDeRoupas_1.Factory.*;
 import LojaDeRoupas_1.Modelo.Camisas.Camisa;
+import LojaDeRoupas_1.Modelo.Vestidos.Vestido;
+import LojaDeRoupas_1.Modelo.Tenis.Tenis;
 
 public class Cliente {
 	public static void main(String [] args) {
+		
 		//Factorys
 		CamisaFactory facCamisa = new CamisaFactory();
+		VestidoFactory facVestido = new VestidoFactory();
+		TenisFactory facTenis = new TenisFactory();
 		
 		
 		//pedidos
 		Pedido pedido1 = new Pedido("vermelho", "M", "Masculino");
 		
 		//objetos
+<<<<<<< HEAD
 		
 		Camisa camisa = facCamisa.pedidoCamisa("Mangalonga", pedido1);
 		
 		System.out.println(camisa.getInfo());
+=======
+		Camisa camisa = facCamisa.pedidoCamisa("regata");
+		Vestido vestido = facVestido.pedidoVestido("Longo");
+		Tenis tenis = facTenis.pedidoTenis("CanoAlto");
+		
+		System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=");
+		
+		System.out.println("Camisa: ");
+		System.out.println(camisa.getDescricao());
+		System.out.println(camisa.getPreco());
+		
+		System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=");
+		
+		System.out.println("Vestido: ");
+		System.out.println(vestido.getDescricao());
+		System.out.println(vestido.getPreco());
+		
+		System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=");
+		
+		System.out.println("Tenis: ");
+		System.out.println(tenis.getDescricao());
+		System.out.println(tenis.getPreco());
+>>>>>>> 0aedec52893ffa73e2604ccbe2298e4afbce9ce6
 	}
 }
 

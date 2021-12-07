@@ -11,10 +11,9 @@ public class MangaLonga extends Camisa{
     private static String tamanho;
     private static String genero;
     private static String info;
+    //Falta marca
     
     
-    //talvez fazer para recerber um objeto "pedido" e as informacoes vem dentro dele
-    // pedido.cor , pedido.tamanho e pedido.genero
     public MangaLonga(Pedido pedido) {
     	this.cor = pedido.cor;
     	this.tamanho = pedido.tamanho;
