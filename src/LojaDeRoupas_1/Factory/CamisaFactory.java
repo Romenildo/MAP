@@ -15,13 +15,16 @@ public class CamisaFactory {
 	            case "Mangalonga": 
 	            	novaCamisa = new MangaLonga(pedido); 
 	            	break;
+	            case "Polo": 
+	            	novaCamisa = new Polo(); 
+	            	break;
+	            case "MangaCurta": 
+	            	novaCamisa = new MangaCurta(); 
+	            	break;
 	            default: 
 	            	System.out.println("Modelo de Camisa não existente");
 	            	break;
 	        }
-	        
-	        novaCamisa.getPreco();
-	        novaCamisa.getDescricao();
 	        
 	        return novaCamisa;
 	 }

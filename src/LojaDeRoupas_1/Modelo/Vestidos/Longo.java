@@ -1,6 +1,8 @@
 package LojaDeRoupas_1.Modelo.Vestidos;
 
 public class Longo extends Vestido{
+	
+	//adicionar os demais atributos
 	private static final float preco = 55.0f;
     private static final String descricao = "Longo";
     

@@ -5,7 +5,10 @@ import LojaDeRoupas_1.Modelo.Vestidos.Curto;
 import LojaDeRoupas_1.Modelo.Vestidos.Vestido;
 
 public class VestidoFactory {
-	 public Vestido pedidoVestido(String nome){
+	
+	 public Vestido pedidoVestido(String nome, String pedido){
+		 
+		 //Adicionar o pedido nos parametros de criacao
 		 Vestido novoVestido = null; 
 		 
 	        switch (nome) {
@@ -19,11 +22,6 @@ public class VestidoFactory {
 	            	System.out.println("Modelo de Vestido não existente");
 	            	break;
 	        }
-	        
-	        /* são necessárias ?*/
-	        novoVestido.getPreco();
-	        novoVestido.getDescricao();
-	        /*------------------*/
 	        
 	        return novoVestido;
 	 }

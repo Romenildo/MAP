@@ -8,14 +8,14 @@ public class Cliente {
 		//Factorys
 		CamisaFactory facCamisa = new CamisaFactory();
 		
-		
 		//pedidos
 		Pedido pedido1 = new Pedido("vermelho", "M", "Masculino");
 		
 		//objetos
-		
 		Camisa camisa = facCamisa.pedidoCamisa("Mangalonga", pedido1);
 		
+		
+		//Mostrar 
 		System.out.println(camisa.getInfo());
 	}
 }

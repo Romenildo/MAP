@@ -7,27 +7,29 @@ import LojaDeRoupas_1.Modelo.Tenis.Sapatenis;
 
 public class TenisFactory {
 	
-	public Tenis pedidoTenis(String tipoDeTenis) {
-		Tenis tenis = null;
+	public Tenis pedidoTenis(String tipoDeTenis, String pedido) {
+		
+		//adicionar o pedido nos parametros de criacao do mdoelo
+		
+		Tenis novoTenis = null;
 		
 		switch (tipoDeTenis){
 			case "CanoAlto": 
-				tenis = new CanoAlto();
+				novoTenis = new CanoAlto();
 				break;
 			case "Esportivo": 
-				tenis = new Esportivo();
+				novoTenis = new Esportivo();
 				break;
 			case "Sapatenis": 
-				tenis = new Sapatenis();
+				novoTenis = new Sapatenis();
 				break;
 			default:
 				System.out.println("Modelo de tenis não existente");
             	break;
 			}
 		
-		tenis.getDescricao();
-		tenis.getPreco();
 		
-		return tenis;
+		
+		return novoTenis;
 	}
 }

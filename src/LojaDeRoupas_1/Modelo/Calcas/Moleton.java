@@ -1,8 +1,5 @@
-package LojaDeRoupas_1.Modelo.Camisas;
+package LojaDeRoupas_1.Modelo.Calcas;
 
-public class Regata extends Camisa{
-	
+public class Moleton extends Calca{
 	//Fazer igual Manga Longa alterando os valores das variaveis, preco, descrição...
-    
 }
-

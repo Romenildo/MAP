@@ -1,8 +1,5 @@
-package LojaDeRoupas_1.Modelo.Camisas;
+package LojaDeRoupas_1.Modelo.Shorts;
 
-public class Regata extends Camisa{
-	
+public class Elastico extends Short{
 	//Fazer igual Manga Longa alterando os valores das variaveis, preco, descrição...
-    
 }
-
