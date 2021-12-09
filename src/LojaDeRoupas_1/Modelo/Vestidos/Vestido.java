@@ -4,7 +4,7 @@ import LojaDeRoupas_1.Modelo.Marcas.Marca;
 
 public abstract class Vestido {
 	
-	private float preco; //Em Reais
+	 private float preco; //Em Reais
 	 private String descricao;
 	 private String cor;
 	 private String tamanho;//P M G GG EGG
