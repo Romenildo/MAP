@@ -1,15 +1,10 @@
 package LojaDeRoupas_1.Factory;
 
-import LojaDeRoupas_1.Modelo.Tenis.Tenis;
-import LojaDeRoupas_1.Modelo.Tenis.CanoAlto;
-import LojaDeRoupas_1.Modelo.Tenis.Esportivo;
-import LojaDeRoupas_1.Modelo.Tenis.Sapatenis;
+import LojaDeRoupas_1.Modelo.Tenis.*;
 
 public class TenisFactory {
 	
 	public Tenis pedidoTenis(String tipoDeTenis, String pedido) {
-		
-		//adicionar o pedido nos parametros de criacao do mdoelo
 		
 		Tenis novoTenis = null;
 		
