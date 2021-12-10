@@ -1,6 +1,6 @@
 # MAP
 Repositorio da Máteria de Métodos avançados de Programação   
-- Equipe: Semeone, Dennis, Romenildo e Leandro.
+- Equipe: Simeone, Dennis, Romenildo e Leandro.
 
 ## Milestone 1   
 
