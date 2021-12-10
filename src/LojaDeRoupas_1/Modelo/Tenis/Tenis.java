@@ -4,7 +4,7 @@ import LojaDeRoupas_1.Modelo.Marcas.Marca;
 
 public abstract class Tenis {
 	
-	private float preco; //Em Reais
+	 private float preco; //Em Reais
 	 private String descricao;
 	 private String cor;
 	 private String tamanho;// (32,33,34,35,36,37,38,40,41,42)
@@ -39,4 +39,3 @@ public abstract class Tenis {
 		 return this.info;
 	 }
 	}
-}

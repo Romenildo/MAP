@@ -6,7 +6,7 @@ import LojaDeRoupas_1.Modelo.Marcas.Marca;
 public class LacosteFactory implements MarcasFactory{
 
 	@Override
-	public Marca getDescricaoMarca() {
+	public Marca getMarca() {
 		// TODO Auto-generated method stub
 		return new Lacoste();
 	}

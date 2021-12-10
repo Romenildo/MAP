@@ -10,16 +10,16 @@ public class CamisaFactory {
 	        
 	        switch (nome) {
 	            case "regata": 
-	            	novaCamisa = new Regata(); 
+	            	novaCamisa = new Regata(pedido);
 	            	break;
 	            case "Mangalonga": 
 	            	novaCamisa = new MangaLonga(pedido); 
 	            	break;
 	            case "Polo": 
-	            	novaCamisa = new Polo(); 
+	            	novaCamisa = new Polo(pedido);
 	            	break;
 	            case "MangaCurta": 
-	            	novaCamisa = new MangaCurta(); 
+	            	novaCamisa = new MangaCurta(pedido);
 	            	break;
 	            default: 
 	            	System.out.println("Modelo de Camisa não existente");

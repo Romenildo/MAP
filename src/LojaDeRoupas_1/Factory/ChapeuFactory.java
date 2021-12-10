@@ -1,8 +1,7 @@
 package LojaDeRoupas_1.Factory;
 
 import LojaDeRoupas_1.Pedido;
-import LojaDeRoupas_1.Modelo.Chapeus.Chapeu;
-
+import LojaDeRoupas_1.Modelo.Chapeus.*;
 
 public class ChapeuFactory {
 	
@@ -10,17 +9,17 @@ public class ChapeuFactory {
         Chapeu novoChapeu = null;
         
         switch (nome) {
-            case "modelo1": 
-            	//novoChapeu = new (pedido); 
+            case "Boina": 
+            	novoChapeu = new Boina(pedido);
             	break;
-            case "modelo2": 
-            	//novoChapeu = new (pedido); 
+            case "Bone": 
+            	novoChapeu = new Bone(pedido); 
             	break;
-            case "modelo3": 
-            	//novoChapeu = new (pedido); 
+            case "Cartola": 
+            	novoChapeu = new Cartola(pedido); 
             	break;
-            case "modelo4": 
-            	//novoChapeu = new (pedido); 
+            case "Fedora": 
+            	novoChapeu = new Fedora(pedido); 
             	break;
             default: 
             	System.out.println("Modelo de Chapeu não existente");
