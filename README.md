@@ -1,5 +1,5 @@
 # MAP
-Repositorio da Máteria de Métodos avançados de Programação   
+Repositorio da Matéria de Métodos avançados de Programação   
 - Equipe: Simeone, Dennis, Romenildo e Leandro.
 
 ## Milestone 1   
