@@ -1,11 +1,10 @@
 package LojaDeRoupas_1.Modelo.Calcas;
 
-import LojaDeRoupas_1.Factory.MarcasAbstractFactory.NikeFactory;
+import LojaDeRoupas_1.Factory.MarcasAbstractFactory.CalvinKleinFactory;
 import LojaDeRoupas_1.Modelo.Marcas.Marca;
 import LojaDeRoupas_1.Pedido;
 
 public class Social extends Calca{
-	//Fazer igual Manga Longa alterando os valores das variaveis, preco, descriï¿½ï¿½o...
 
     //Atributos
     private static final float preco = 80.00f;
@@ -15,15 +14,14 @@ public class Social extends Calca{
     private static String genero;
     private static String info;
 
-    //As marcas deve alterar tipo: quem faz regata nike, manga longa adidas, polo Calvin klein
-    private static Marca marca = new NikeFactory().getMarca();
+    private static Marca marca = new CalvinKleinFactory().getMarca();
 
     //Construtor
     public Social(Pedido pedido) {
         this.cor = pedido.cor;
         this.tamanho = pedido.tamanho;
         this.genero = pedido.genero;
-        this.info = "Tipo: " + descricao + "\nPreï¿½o R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\n";
+    	this.info = "Tipo: " + descricao + "\nPreço R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\nMarca: " +marca.getDescricaoMarca() +"\n" ;
     }
 
     //Getters

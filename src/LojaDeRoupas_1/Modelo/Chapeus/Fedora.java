@@ -1,29 +1,27 @@
 package LojaDeRoupas_1.Modelo.Chapeus;
 
-import LojaDeRoupas_1.Factory.MarcasAbstractFactory.NikeFactory;
+import LojaDeRoupas_1.Factory.MarcasAbstractFactory.CalvinKleinFactory;
 import LojaDeRoupas_1.Modelo.Marcas.Marca;
 import LojaDeRoupas_1.Pedido;
 
 public class Fedora extends Chapeu{
-	//Fazer igual Manga Longa alterando os valores das variaveis, preco, descriï¿½ï¿½o...
 
     //Atributos
     private static final float preco = 160.00f;
-    private static final String descricao = "Fedora";
+    private static final String descricao = "Chapeu modelo Fedora";
     private static String cor;
     private static String tamanho;
     private static String genero;
     private static String info;
 
-    //As marcas deve alterar tipo: quem faz regata nike, manga longa adidas, polo Calvin klein
-    private static Marca marca = new NikeFactory().getMarca();
+    private static Marca marca = new CalvinKleinFactory().getMarca();
 
     //Construtor
     public Fedora(Pedido pedido) {
         this.cor = pedido.cor;
         this.tamanho = pedido.tamanho;
         this.genero = pedido.genero;
-        this.info = "Tipo: " + descricao + "\nPreï¿½o R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\n";
+    	this.info = "Tipo: " + descricao + "\nPreço R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\nMarca: " +marca.getDescricaoMarca() +"\n" ;
     }
 
     //Getters

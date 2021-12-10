@@ -22,7 +22,7 @@ public class ChapeuFactory {
             	novoChapeu = new Fedora(pedido); 
             	break;
             default: 
-            	System.out.println("Modelo de Chapeu não existente");
+            	System.out.println(nome + ": Modelo de Chapeu não existente");
             	break;
         }
         

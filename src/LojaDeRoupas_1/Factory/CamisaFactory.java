@@ -9,7 +9,7 @@ public class CamisaFactory {
 	        Camisa novaCamisa = null;
 	        
 	        switch (nome) {
-	            case "regata": 
+	            case "Regata": 
 	            	novaCamisa = new Regata(pedido);
 	            	break;
 	            case "Mangalonga": 
@@ -22,7 +22,7 @@ public class CamisaFactory {
 	            	novaCamisa = new MangaCurta(pedido);
 	            	break;
 	            default: 
-	            	System.out.println("Modelo de Camisa não existente");
+	            	System.out.println(nome + ": Modelo de Camisa não existente");
 	            	break;
 	        }
 	        

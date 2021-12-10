@@ -5,17 +5,15 @@ import LojaDeRoupas_1.Modelo.Marcas.Marca;
 import LojaDeRoupas_1.Pedido;
 
 public class Bone extends Chapeu{
-	//Fazer igual Manga Longa alterando os valores das variaveis, preco, descriï¿½ï¿½o...
 
     //Atributos
     private static final float preco = 35.00f;
-    private static final String descricao = "Bone";
+    private static final String descricao = "Chapeu modelo Bone";
     private static String cor;
     private static String tamanho;
     private static String genero;
     private static String info;
 
-    //As marcas deve alterar tipo: quem faz regata nike, manga longa adidas, polo Calvin klein
     private static Marca marca = new NikeFactory().getMarca();
 
     //Construtor
@@ -23,7 +21,7 @@ public class Bone extends Chapeu{
         this.cor = pedido.cor;
         this.tamanho = pedido.tamanho;
         this.genero = pedido.genero;
-        this.info = "Tipo: " + descricao + "\nPreï¿½o R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\n";
+    	this.info = "Tipo: " + descricao + "\nPreço R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\nMarca: " +marca.getDescricaoMarca() +"\n" ;
     }
 
     //Getters

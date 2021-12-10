@@ -1,31 +1,27 @@
 package LojaDeRoupas_1.Modelo.Shorts;
 
-import LojaDeRoupas_1.Factory.MarcasAbstractFactory.AdidasFactory;
 import LojaDeRoupas_1.Factory.MarcasAbstractFactory.NikeFactory;
-import LojaDeRoupas_1.Modelo.Marcas.Adidas;
 import LojaDeRoupas_1.Modelo.Marcas.Marca;
 import LojaDeRoupas_1.Pedido;
 
 public class Bermuda extends Short{
-	//Fazer igual Manga Longa alterando os valores das variaveis, preco, descriï¿½ï¿½o...
 
     //Atributos
-    private static final float preco = 150.00f;
-    private static final String descricao = "Bermuda";
+    private static final float preco = 80.00f;
+    private static final String descricao = "Short modelo Bermuda";
     private static String cor;
     private static String tamanho;
     private static String genero;
     private static String info;
 
-    //As marcas deve alterar tipo: quem faz regata nike, manga longa adidas, polo Calvin klein
-    private static Marca marca = new AdidasFactory().getMarca();
+    private static Marca marca = new NikeFactory().getMarca();
 
     //Construtor
     public Bermuda(Pedido pedido) {
         this.cor = pedido.cor;
         this.tamanho = pedido.tamanho;
         this.genero = pedido.genero;
-        this.info = "Tipo: " + descricao + "\nPreï¿½o R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\n";
+    	this.info = "Tipo: " + descricao + "\nPreço R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\nMarca: " +marca.getDescricaoMarca() +"\n" ;
     }
 
     //Getters

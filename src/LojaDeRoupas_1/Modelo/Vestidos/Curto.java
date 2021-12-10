@@ -1,15 +1,28 @@
 package LojaDeRoupas_1.Modelo.Vestidos;
 
+import LojaDeRoupas_1.Pedido;
+import LojaDeRoupas_1.Factory.MarcasAbstractFactory.CalvinKleinFactory;
+import LojaDeRoupas_1.Modelo.Marcas.Marca;
+
 public class Curto extends Vestido{
 	
 	
 	private static final float preco = 45.0f;
-    private static final String descricao = "Curto";
+    private static final String descricao = "Vestido Curto";
     private static String cor;
     private static String tamanho;//P M G GG EGG
 	private static String genero;//feminino
 	private static String info; //juncao de todas as informacoes
     
+	    private static Marca marca = new CalvinKleinFactory().getMarca();
+
+    //Construtor
+    public Curto(Pedido pedido) {
+        this.cor = pedido.cor;
+        this.tamanho = pedido.tamanho;
+        this.genero = pedido.genero;
+    	this.info = "Tipo: " + descricao + "\nPreço R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\nMarca: " +marca.getDescricaoMarca() +"\n" ;
+    }
     public float getPreco(){
         return this.preco;
     }

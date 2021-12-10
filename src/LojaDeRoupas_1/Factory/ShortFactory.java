@@ -7,7 +7,7 @@ import LojaDeRoupas_1.Modelo.Shorts.Short;
 
 public class ShortFactory {
 	
-	public Short pedidoChapeu(String nome, Pedido pedido){
+	public Short pedidoShort(String nome, Pedido pedido){
         Short novoShort = null;
         
         switch (nome) {
@@ -21,7 +21,7 @@ public class ShortFactory {
             	novoShort = new Praia(pedido); 
             	break;
             default: 
-            	System.out.println("Modelo do Short não existente");
+            	System.out.println(nome + ": Modelo do Short não existente");
             	break;
         }
         

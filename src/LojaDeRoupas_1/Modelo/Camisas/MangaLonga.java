@@ -15,15 +15,14 @@ public class MangaLonga extends Camisa{
     private static String genero;
     private static String info;
     
-    //As marcas deve alterar tipo: quem faz regata nike, manga longa adidas, polo Calvin klein
-    private static Marca marca = new NikeFactory().getMarca();
+    private static Marca marca = new AdidasFactory().getMarca();
     
     //Construtor
     public MangaLonga(Pedido pedido) {
     	this.cor = pedido.cor;
     	this.tamanho = pedido.tamanho;
     	this.genero = pedido.genero;
-    	this.info = "Tipo: " + descricao + "\nPreço R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\n";
+    	this.info = "Tipo: " + descricao + "\nPreço R$:" + preco +"\nCor: "+cor+"\nTamanho: "+tamanho+"\nGenero: "+genero+"\nMarca: " +marca.getDescricaoMarca() +"\n" ;
     }
     
     //Getters
@@ -36,15 +35,15 @@ public class MangaLonga extends Camisa{
     }
     
 	public float getPreco() {
-		return preco;
+		return this.preco;
 	}
 	
 	public String getCor() {
-		return cor;
+		return this.cor;
 	}
 	
 	public String getTamanho() {
-		return tamanho;
+		return this.tamanho;
 	}
 	
 	public String getMarca() {
