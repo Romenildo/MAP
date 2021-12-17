@@ -11,4 +11,16 @@ bem como, realizar a entrega de um protótipo que atenda pelo menos um dos segui
 - Factory Method;
 - Abstract Method.
 
+pasta: LojaDeRoupas_1
+Versao: 1.0.0
+
+## Milestone 2   
+
+Neste milestone, vocês deverão entregar um protótipo da aplicação comercial que atenda pelo menos um dos seguintes padrões de projeto: 
+- Builder;(escolhido)
+- Prototype;
+- Singleton;
+- Monostate.
+
+pasta: LojaDeRoupas_2
 Versao: 1.0.0
