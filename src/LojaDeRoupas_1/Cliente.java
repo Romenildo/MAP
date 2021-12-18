@@ -68,8 +68,11 @@ public class Cliente {
 				.addCalca(calca1)
 				.fimPedido();
 		
+		Carrinho carrinho2  = new BuilderCarrinho("brinde")
+				.addTenis(tenis1)
+				.fimPedido();
+		
 		System.out.println(carrinho1.toString());
-		carrinho1.MostrarItens();
 		System.out.println(calca1.getDescricao());
 	}
 }

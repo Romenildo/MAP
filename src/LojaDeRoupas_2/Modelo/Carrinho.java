@@ -34,12 +34,9 @@ public class Carrinho {
 				+ ", shorts=" + shorts + ", vestido=" + vestido + ", tenis=" + tenis + "]";
 	}
 
-	public void MostrarItens() {
-		System.out.println(this.calca.getDescricao());
-	}
-	
-	//get valor total
-	//get itens do carrinho
+	//get quantidade de itens no carrinho
+	//get valor total no carrinho
+	//get itens do carrinho(Nao aparecer os com null)
 	
 	
 }
