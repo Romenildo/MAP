@@ -8,6 +8,9 @@ import LojaDeRoupas_1.Modelo.Tenis.Tenis;
 import LojaDeRoupas_1.Modelo.Vestidos.Vestido;
 import LojaDeRoupas_1.Modelo.Shorts.Short;
 
+import LojaDeRoupas_2.Builder.BuilderCarrinho;
+import LojaDeRoupas_2.Modelo.Carrinho;
+
 public class Cliente {
 	public static void main(String [] args) {
 		//Factorys
@@ -40,8 +43,8 @@ public class Cliente {
 		
 		Vestido vestido1 = facVestido.pedidoVestido("Longo", pedidoVestido1);
 		
-		Camisa camisa3 = facCamisa.pedidoCamisa("nomeInexistente", pedidoCamisa1);
 		
+		/*   --- MILESTONE 1 mostrar os dados dos pedidos----
 		//Mostrar 
 		System.out.println("------Camisas-----");
 		System.out.println(camisa1.getInfo());
@@ -55,6 +58,18 @@ public class Cliente {
 		System.out.println(tenis1.getInfo());
 		System.out.println("------Vestido-----");
 		System.out.println(vestido1.getInfo());
+		*/
+		
+		// --- MILESTONE 2 ---
+		
+		// Carrinhos de Compras
+		Carrinho carrinho1 = new BuilderCarrinho("Calendario de Natal")
+				.addCamisa(camisa1)
+				.addCalca(calca1)
+				.fimPedido();
+		
+		System.out.println(carrinho1.toString());
+		carrinho1.MostrarItens();
 	}
 }
 
