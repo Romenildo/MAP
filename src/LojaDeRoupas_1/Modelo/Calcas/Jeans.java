@@ -27,6 +27,10 @@ public class Jeans extends Calca{
     }
 
     //Getters
+    public String getDescricao() {
+    	return this.descricao;
+    }
+    
     public String getGenero() {
         return this.genero;
     }

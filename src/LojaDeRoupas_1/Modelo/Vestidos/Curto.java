@@ -27,7 +27,6 @@ public class Curto extends Vestido{
         return this.preco;
     }
 
-    
     public String getDescricao(){
         return this.descricao;
     }
@@ -42,6 +41,10 @@ public class Curto extends Vestido{
 	 
 	 public String getGenero() {
 		 return this.genero;
+	 }
+	 
+	 public String getMarca() {
+	        return this.marca.getDescricaoMarca();
 	 }
 	 
 	 public String getInfo() {

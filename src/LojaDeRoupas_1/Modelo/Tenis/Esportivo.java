@@ -43,6 +43,10 @@ public class Esportivo extends Tenis{
 		 return this.genero;
 	 }
 	 
+	 public String getMarca() {
+	        return this.marca.getDescricaoMarca();
+	 }
+	 
 	 public String getInfo() {
 		 return this.info;
 	 }

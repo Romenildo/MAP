@@ -40,9 +40,13 @@ public class CanoAlto extends Tenis{
 	 public String getTamanho() {
 		 return this.tamanho;
 	 }
+	 
 	 public String getGenero() {
 		 return this.genero;
 	 }
+	 public String getMarca() {
+	        return this.marca.getDescricaoMarca();
+	    }
 	 
 	 public String getInfo() {
 		 return this.info;

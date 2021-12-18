@@ -37,6 +37,9 @@ public class Carrinho {
 	public void MostrarItens() {
 		System.out.println(this.calca.getDescricao());
 	}
-
+	
+	//get valor total
+	//get itens do carrinho
+	
 	
 }

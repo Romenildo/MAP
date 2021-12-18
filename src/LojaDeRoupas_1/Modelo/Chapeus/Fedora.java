@@ -25,6 +25,10 @@ public class Fedora extends Chapeu{
     }
 
     //Getters
+    public String getDescricao() {
+    	return this.descricao;
+    }
+    
     public String getGenero() {
         return this.genero;
     }

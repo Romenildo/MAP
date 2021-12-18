@@ -46,6 +46,10 @@ public class Longo extends Vestido{
 		 return this.genero;
 	 }
 	 
+	 public String getMarca() {
+	        return this.marca.getDescricaoMarca();
+	 }
+	 
 	 public String getInfo() {
 		 return this.info;
 	 }
