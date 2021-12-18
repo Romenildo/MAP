@@ -30,7 +30,7 @@ public class Carrinho {
 	
 	@Override
 	public String toString() {
-		return "Carrinho [brinde=" + brinde + ", calca=" + calca + ", camisa=" + camisa + ", chapeu=" + chapeu
+		return "Carrinho [brinde=" + brinde + ", calca=" + calca.getDescricao() + ", camisa=" + camisa + ", chapeu=" + chapeu
 				+ ", shorts=" + shorts + ", vestido=" + vestido + ", tenis=" + tenis + "]";
 	}
 

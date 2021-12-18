@@ -70,6 +70,7 @@ public class Cliente {
 		
 		System.out.println(carrinho1.toString());
 		carrinho1.MostrarItens();
+		System.out.println(calca1.getDescricao());
 	}
 }
 
