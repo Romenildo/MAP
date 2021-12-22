@@ -1,5 +1,6 @@
 package LojaDeRoupas_2.Modelo;
 
+import java.util.ArrayList;
 import LojaDeRoupas_1.Modelo.Calcas.Calca;
 import LojaDeRoupas_1.Modelo.Camisas.Camisa;
 import LojaDeRoupas_1.Modelo.Chapeus.Chapeu;
@@ -16,9 +17,11 @@ public class Carrinho {
 	private Short shorts;
 	private Vestido vestido;
 	private Tenis tenis;
+	private ArrayList<Object> carrinho;
 	
 	public Carrinho(String brinde, Calca calca, Camisa camisa, Chapeu chapeu, Short shorts, Vestido vestido, Tenis tenis) {
 		
+		carrinho = new ArrayList<>();
 		this.brinde = brinde;
 		this.calca = calca;
 		this.camisa = camisa;
@@ -26,6 +29,15 @@ public class Carrinho {
 		this.shorts = shorts;
 		this.vestido = vestido;
 		this.tenis = tenis;
+		
+		carrinho.add(brinde);
+		if ( calca != null) carrinho.add(calca);
+		if ( camisa != null) carrinho.add(camisa);
+		if ( chapeu != null) carrinho.add(chapeu);
+		if ( shorts != null) carrinho.add(shorts);
+		if ( vestido != null) carrinho.add(vestido);
+		if ( tenis != null) carrinho.add(tenis);
+
 	}
 	
 	@Override
@@ -36,14 +48,8 @@ public class Carrinho {
 	
 	
 	public int getQuantidadeItens(){
-		int qnt_itens = 0;
-		if (calca != null) qnt_itens++;
-		if (camisa != null) qnt_itens++;
-		if (chapeu != null) qnt_itens++;
-		if (shorts != null) qnt_itens++;
-		if (vestido != null) qnt_itens++;
-		if (tenis != null) qnt_itens++;
-		return qnt_itens;
+		return carrinho.size();
+		
 	}
 
 	
@@ -53,7 +59,7 @@ public class Carrinho {
 		if (camisa != null) valor += camisa.getPreco();
 		if (chapeu != null) valor += chapeu.getPreco();
 		
-		//sem funcionar:
+		//atencao:
 		//if (shorts != null) valor += shorts.getPreco();
 		
 		if (vestido != null) valor += vestido.getPreco();
@@ -63,13 +69,11 @@ public class Carrinho {
 	
 	
 	public String getItensCarrinho(){
-		String itens = "Brinde: " + brinde + ", ";
-		if (calca != null) itens += calca + ", ";
-		if (camisa != null) itens += camisa + ", ";
-		if (chapeu != null) itens += chapeu + ", ";
-		if (shorts != null) itens += shorts + ", ";
-		if (vestido != null) itens += vestido + ", ";
-		if (tenis != null) itens += tenis;
+		String itens = "";
+		for (Object item : carrinho) {
+			itens += item + ", ";
+		}
 		return itens;
 	}
+	
 }
