@@ -33,10 +33,43 @@ public class Carrinho {
 		return "Carrinho [brinde=" + brinde + ", calca=" + calca.getDescricao() + ", camisa=" + camisa + ", chapeu=" + chapeu
 				+ ", shorts=" + shorts + ", vestido=" + vestido + ", tenis=" + tenis + "]";
 	}
+	
+	
+	public int getQuantidadeItens(){
+		int qnt_itens = 0;
+		if (calca != null) qnt_itens++;
+		if (camisa != null) qnt_itens++;
+		if (chapeu != null) qnt_itens++;
+		if (shorts != null) qnt_itens++;
+		if (vestido != null) qnt_itens++;
+		if (tenis != null) qnt_itens++;
+		return qnt_itens;
+	}
 
-	//get quantidade de itens no carrinho
-	//get valor total no carrinho
-	//get itens do carrinho(Nao aparecer os com null)
+	
+	public int getValorCarrinho(){
+		int valor = 0;
+		if (calca != null) valor += calca.getPreco();
+		if (camisa != null) valor += camisa.getPreco();
+		if (chapeu != null) valor += chapeu.getPreco();
+		
+		//sem funcionar:
+		//if (shorts != null) valor += shorts.getPreco();
+		
+		if (vestido != null) valor += vestido.getPreco();
+		if (tenis != null) valor += tenis.getPreco();
+		return valor;
+	}
 	
 	
+	public String getItensCarrinho(){
+		String itens = "Brinde: " + brinde + ", ";
+		if (calca != null) itens += calca + ", ";
+		if (camisa != null) itens += camisa + ", ";
+		if (chapeu != null) itens += chapeu + ", ";
+		if (shorts != null) itens += shorts + ", ";
+		if (vestido != null) itens += vestido + ", ";
+		if (tenis != null) itens += tenis;
+		return itens;
+	}
 }
