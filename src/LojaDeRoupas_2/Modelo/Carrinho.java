@@ -6,6 +6,7 @@ import LojaDeRoupas_1.Modelo.Camisas.Camisa;
 import LojaDeRoupas_1.Modelo.Chapeus.Chapeu;
 import LojaDeRoupas_1.Modelo.Tenis.Tenis;
 import LojaDeRoupas_1.Modelo.Vestidos.Vestido;
+import LojaDeRoupas_1.Modelo.Shorts.Short;
 
 public class Carrinho {
 	
@@ -17,11 +18,9 @@ public class Carrinho {
 	private Short shorts;
 	private Vestido vestido;
 	private Tenis tenis;
-	private ArrayList<Object> carrinho;
 	
 	public Carrinho(String brinde, Calca calca, Camisa camisa, Chapeu chapeu, Short shorts, Vestido vestido, Tenis tenis) {
 		
-		carrinho = new ArrayList<>();
 		this.brinde = brinde;
 		this.calca = calca;
 		this.camisa = camisa;
@@ -29,51 +28,69 @@ public class Carrinho {
 		this.shorts = shorts;
 		this.vestido = vestido;
 		this.tenis = tenis;
-		
-		carrinho.add(brinde);
-		if ( calca != null) carrinho.add(calca);
-		if ( camisa != null) carrinho.add(camisa);
-		if ( chapeu != null) carrinho.add(chapeu);
-		if ( shorts != null) carrinho.add(shorts);
-		if ( vestido != null) carrinho.add(vestido);
-		if ( tenis != null) carrinho.add(tenis);
 
 	}
-	
-	@Override
-	public String toString() {
-		return "Carrinho [brinde=" + brinde + ", calca=" + calca.getDescricao() + ", camisa=" + camisa + ", chapeu=" + chapeu
-				+ ", shorts=" + shorts + ", vestido=" + vestido + ", tenis=" + tenis + "]";
-	}
-	
 	
 	public int getQuantidadeItens(){
-		return carrinho.size();
-		
+		int qnt_itens = 0;
+		if (calca != null) qnt_itens++;
+		if (camisa != null) qnt_itens++;
+		if (chapeu != null) qnt_itens++;
+		if (shorts != null) qnt_itens++;
+		if (vestido != null) qnt_itens++;
+		if (tenis != null) qnt_itens++;
+		return qnt_itens;
 	}
 
-	
-	public int getValorCarrinho(){
-		int valor = 0;
+	public float getValorTotalCarrinho(){
+		float valor = 0;
 		if (calca != null) valor += calca.getPreco();
 		if (camisa != null) valor += camisa.getPreco();
 		if (chapeu != null) valor += chapeu.getPreco();
-		
-		//atencao:
-		//if (shorts != null) valor += shorts.getPreco();
-		
+		if (shorts != null) valor += shorts.getPreco();
 		if (vestido != null) valor += vestido.getPreco();
 		if (tenis != null) valor += tenis.getPreco();
 		return valor;
 	}
-	
-	
+
 	public String getItensCarrinho(){
-		String itens = "";
-		for (Object item : carrinho) {
-			itens += item + ", ";
-		}
+		String itens = "Itens do Carrinho: \nBrinde: " + brinde + "\n";
+		if (calca != null) itens += calca.getDescricao() + "   R$: "+ calca.getPreco() +"\n";
+		if (camisa != null) itens += camisa.getDescricao() +"   R$: "+ camisa.getPreco() + "\n";
+		if (chapeu != null) itens += chapeu.getDescricao() +"   R$: "+ chapeu.getPreco() + "\n";
+		if (shorts != null) itens += shorts.getDescricao() +"   R$: "+ shorts.getPreco() + "\n";
+		if (vestido != null) itens += vestido.getDescricao() +"   R$: "+ vestido.getPreco() + "\n";
+		if (tenis != null) itens += tenis.getDescricao() +"   R$: "+ tenis.getPreco() + "\n";
 		return itens;
 	}
+
+	public String getBrinde() {
+		return brinde;
+	}
+
+	public Calca getCalca() {
+		return calca;
+	}
+
+	public Camisa getCamisa() {
+		return camisa;
+	}
+
+	public Chapeu getChapeu() {
+		return chapeu;
+	}
+
+	public Short getShorts() {
+		return shorts;
+	}
+
+	public Vestido getVestido() {
+		return vestido;
+	}
+
+	public Tenis getTenis() {
+		return tenis;
+	}
+	
 	
 }

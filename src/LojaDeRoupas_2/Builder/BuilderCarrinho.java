@@ -4,6 +4,7 @@ import LojaDeRoupas_1.Modelo.Calcas.Calca;
 import LojaDeRoupas_1.Modelo.Camisas.Camisa;
 import LojaDeRoupas_1.Modelo.Chapeus.Chapeu;
 import LojaDeRoupas_1.Modelo.Tenis.Tenis;
+import LojaDeRoupas_1.Modelo.Shorts.Short;
 import LojaDeRoupas_1.Modelo.Vestidos.Vestido;
 import LojaDeRoupas_2.Modelo.Carrinho;
 

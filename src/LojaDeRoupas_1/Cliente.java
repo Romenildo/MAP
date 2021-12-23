@@ -71,9 +71,23 @@ public class Cliente {
 		Carrinho carrinho2  = new BuilderCarrinho("brinde")
 				.addTenis(tenis1)
 				.fimPedido();
+		//CARRINHO 1
+		System.out.println("---Carrinho1----");
+		System.out.print(carrinho1.getItensCarrinho());
+		System.out.println("Preco total: R$: "+ carrinho1.getValorTotalCarrinho());
+		System.out.println("Quantidade de itens no carrinho:" + carrinho1.getQuantidadeItens());
 		
-		System.out.println(carrinho1.toString());
-		System.out.println(calca1.getDescricao());
+		//Ver informacao da roupa com mais detalhes
+		System.out.println("\n--Detalhes da camisa--\n" + carrinho1.getCamisa().getInfo());
+		
+		// CARRINHO 2
+		System.out.println("---Carrinho2----");
+		System.out.print(carrinho2.getItensCarrinho());
+		System.out.println("Preco total: R$: "+ carrinho2.getValorTotalCarrinho());
+		System.out.println("Quantidade de itens no carrinho:" + carrinho2.getQuantidadeItens());
+		
+		//Ver informacao da roupa com mais detalhes
+		System.out.println("\n--Detalhes da camisa--\n" + carrinho2.getTenis().getInfo());
 	}
 }
 
