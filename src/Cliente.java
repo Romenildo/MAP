@@ -1,5 +1,6 @@
-package LojaDeRoupas_1;
 
+
+import LojaDeRoupas_1.Pedido;
 import LojaDeRoupas_1.Factory.*;
 import LojaDeRoupas_1.Modelo.Calcas.Calca;
 import LojaDeRoupas_1.Modelo.Camisas.Camisa;
