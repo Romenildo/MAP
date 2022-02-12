@@ -1,19 +1,19 @@
 package LojaDeRoupas_3.Composite;
 
-public class Dinheiro implements Pagamento{
-	
+import java.util.Date;
+
+public class Boleto implements Pagamento{
+
 	private String nomeCliente;
 	private double valor;
+	private Date dataCompra;
 	
-	public Dinheiro(double valor, String nomeCliente) {
+	public Boleto(double valor, String nomeCliente) {
 		this.nomeCliente = nomeCliente;
-		this.valor = gerarDesconto(valor);
+		this.valor = valor;
+		this.dataCompra = new Date();
 	}
 	
-	public double gerarDesconto(double valor) {
-		return valor - valor * 0.10;
-	}
-
 	@Override
 	public void valorTotal() {
 		System.out.println("Pagamento concluido: R$:"+ this.valor);

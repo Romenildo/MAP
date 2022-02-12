@@ -1,6 +1,5 @@
 package LojaDeRoupas_2.Modelo;
 
-import java.util.ArrayList;
 import LojaDeRoupas_1.Modelo.Calcas.Calca;
 import LojaDeRoupas_1.Modelo.Camisas.Camisa;
 import LojaDeRoupas_1.Modelo.Chapeus.Chapeu;
@@ -42,8 +41,8 @@ public class Carrinho {
 		return qnt_itens;
 	}
 
-	public float getValorTotalCarrinho(){
-		float valor = 0;
+	public double getValorTotalCarrinho(){
+		double valor = 0;
 		if (calca != null) valor += calca.getPreco();
 		if (camisa != null) valor += camisa.getPreco();
 		if (chapeu != null) valor += chapeu.getPreco();
@@ -63,6 +62,7 @@ public class Carrinho {
 		if (tenis != null) itens += tenis.getDescricao() +"   R$: "+ tenis.getPreco() + "\n";
 		return itens;
 	}
+	
 
 	public String getBrinde() {
 		return brinde;

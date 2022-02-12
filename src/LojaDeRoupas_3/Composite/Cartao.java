@@ -5,24 +5,32 @@ public class Cartao implements Pagamento{
 	private double valor;
 	private String nomeCliente;
 	private String numCartao;
+	private int tipo;//1-debito  2-credito
 	
-	public Cartao(double valor, String nomeCliente, String numCartao) {
+	public Cartao(double valor, String nomeCliente, String numCartao, int tipo) {
 		this.valor = gerarTaxaCartao(valor);
 		this.nomeCliente = nomeCliente;
 		this.numCartao = numCartao;
+		this.tipo = tipo;
 	}
-	
-	//fazer uma certa % na taxa do valor dependendo do tipo do cartao
 	
 	public double gerarTaxaCartao(double valor) {
-		return valor * 0.15;
+		if(this.tipo == 2) {
+			return valor + valor * 0.15;
+		}else {
+			return valor;
+		}
 	}
 	
-	
-
 	@Override
 	public void valorTotal() {
-		System.out.println("Valor a ser pago:"+ this.valor);
+		System.out.println("Pagamento concluido: R$:"+ this.valor);
+		
+	}
+
+	@Override
+	public void mostrarComprovante() {
+		//fazer lista de itens com precos e o valor total no final
 		
 	}
 

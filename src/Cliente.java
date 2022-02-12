@@ -12,6 +12,8 @@ import LojaDeRoupas_1.Modelo.Shorts.Short;
 import LojaDeRoupas_2.Builder.BuilderCarrinho;
 import LojaDeRoupas_2.Modelo.Carrinho;
 
+import LojaDeRoupas_3.Composite.*;
+
 public class Cliente {
 	public static void main(String [] args) {
 		//Factorys
@@ -89,6 +91,16 @@ public class Cliente {
 		
 		//Ver informacao da roupa com mais detalhes
 		System.out.println("\n--Detalhes da camisa--\n" + carrinho2.getTenis().getInfo());
+		
+		
+		/*MILESTONE 3*/
+		//Composite
+		Pagamento pagamento1 = new Cartao(carrinho1.getValorTotalCarrinho(),"Joaquim", "1829 9182 1928 2020", 1);
+		pagamento1.valorTotal();
+		
+		
+		Pagamento pagamento2 = new Dinheiro(carrinho2.getValorTotalCarrinho(),"Maria Jose");
+		pagamento2.mostrarComprovante();
 	}
 }
 
