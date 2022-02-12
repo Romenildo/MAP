@@ -1,5 +1,7 @@
 
 
+import java.util.Arrays;
+
 import LojaDeRoupas_1.Pedido;
 import LojaDeRoupas_1.Factory.*;
 import LojaDeRoupas_1.Modelo.Calcas.Calca;
@@ -74,6 +76,7 @@ public class Cliente {
 		Carrinho carrinho2  = new BuilderCarrinho("brinde")
 				.addTenis(tenis1)
 				.fimPedido();
+		/* APRESENTACAO MILESTONE 2
 		//CARRINHO 1
 		System.out.println("---Carrinho1----");
 		System.out.print(carrinho1.getItensCarrinho());
@@ -91,15 +94,32 @@ public class Cliente {
 		
 		//Ver informacao da roupa com mais detalhes
 		System.out.println("\n--Detalhes da camisa--\n" + carrinho2.getTenis().getInfo());
-		
+		*/
 		
 		/*MILESTONE 3*/
 		//Composite
-		Pagamento pagamento1 = new Cartao(carrinho1.getValorTotalCarrinho(),"Joaquim", "1829 9182 1928 2020", 1);
+		Pagamento [] itens = new Item[6];
+		String[][] arrayItens = carrinho1.getArrayCarrinho();
+		
+		
+		for(int i = 0; i< carrinho1.getQuantidadeItens();i++) {
+			itens[i] = new Item(arrayItens[i][0], Double.parseDouble(arrayItens[i][1]));
+		}
+		
+		Pagamento pagamento1 = new Cartao(carrinho1.getValorTotalCarrinho(),"Joaquim", "1829 9182 1928 2020", 1, Arrays.asList(itens) );
+		pagamento1.mostrarComprovante();
 		pagamento1.valorTotal();
 		
 		
-		Pagamento pagamento2 = new Dinheiro(carrinho2.getValorTotalCarrinho(),"Maria Jose");
+		System.out.println("\nSEGUNDA COMPRA  \n");
+		
+		itens = new Item[6];
+		arrayItens = carrinho2.getArrayCarrinho();
+		for(int i = 0; i< carrinho2.getQuantidadeItens();i++) {
+			itens[i] = new Item(arrayItens[i][0], Double.parseDouble(arrayItens[i][1]));
+		}
+		
+		Pagamento pagamento2 = new Dinheiro(carrinho2.getValorTotalCarrinho(),"Maria Jose", Arrays.asList(itens));
 		pagamento2.mostrarComprovante();
 	}
 }

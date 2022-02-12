@@ -24,4 +24,10 @@ public class Item  implements Pagamento{
 		
 	}
 
+	@Override
+	public void mostrar() {
+		System.out.println(item + "------------ R$:"+preco);
+		
+	}
+
 }

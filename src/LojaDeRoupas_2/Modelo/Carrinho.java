@@ -17,6 +17,7 @@ public class Carrinho {
 	private Short shorts;
 	private Vestido vestido;
 	private Tenis tenis;
+	private String [][]arrayItens;
 	
 	public Carrinho(String brinde, Calca calca, Camisa camisa, Chapeu chapeu, Short shorts, Vestido vestido, Tenis tenis) {
 		
@@ -27,6 +28,7 @@ public class Carrinho {
 		this.shorts = shorts;
 		this.vestido = vestido;
 		this.tenis = tenis;
+		arrayItens = new String[6][2];
 
 	}
 	
@@ -61,6 +63,18 @@ public class Carrinho {
 		if (vestido != null) itens += vestido.getDescricao() +"   R$: "+ vestido.getPreco() + "\n";
 		if (tenis != null) itens += tenis.getDescricao() +"   R$: "+ tenis.getPreco() + "\n";
 		return itens;
+	}
+	
+	public String[][] getArrayCarrinho(){
+		int i = 0;
+		if (calca != null) {arrayItens[i][0] = calca.getDescricao();arrayItens[i][1] = String.valueOf(calca.getPreco());i++;}
+		if (camisa != null) {arrayItens[i][0] = camisa.getDescricao();arrayItens[i][1] = String.valueOf(camisa.getPreco());i++;}
+		if (chapeu != null) {arrayItens[i][0] = chapeu.getDescricao();arrayItens[i][1] = String.valueOf(chapeu.getPreco());i++;}
+		if (shorts != null) {arrayItens[i][0] = shorts.getDescricao();arrayItens[i][1] = String.valueOf(shorts.getPreco());i++;}
+		if (vestido != null) {arrayItens[i][0] = vestido.getDescricao();arrayItens[i][1] = String.valueOf(vestido.getPreco());i++;}
+		if (tenis != null) {arrayItens[i][0] = tenis.getDescricao();arrayItens[i][1] = String.valueOf(tenis.getPreco());i++;}
+
+		return arrayItens;
 	}
 	
 
