@@ -41,3 +41,15 @@ Implementacao do sistema de pagamento(dinheiro, cartao, boleto)
 
 pasta: LojaDeRoupas_3
 Versao: 3.0.0
+
+## Milestone 4
+Neste milestone, vocês deverão entregar um protótipo da aplicação comercial que atenda pelo menos um dos seguintes padrões de projeto: 
+- Facade; (Escolhido)
+- Mediator;
+- Proxy.
+
+Implementacao dos menus e funcao de todas as funcionalidades utilizando o metodo facade em conjunto com as demais classes, para funcionamento geral do sistema de controle da loja de roupas.
+
+pasta: LojaDeRoupas_4
+Versao: 4.0.0
+

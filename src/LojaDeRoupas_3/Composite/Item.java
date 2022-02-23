@@ -2,8 +2,6 @@ package LojaDeRoupas_3.Composite;
 
 public class Item  implements Pagamento{
 	
-	
-	//pegar os itens e valores do carrinho
 	private String item;
 	private double preco;
 	public Item(String item, double preco) {
@@ -20,7 +18,7 @@ public class Item  implements Pagamento{
 	//tirar dps
 	@Override
 	public void mostrarComprovante() {
-		// TODO Auto-generated method stub
+		System.out.println("Valor do produto R$:"+preco);
 		
 	}
 

@@ -1,6 +1,7 @@
 
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 import LojaDeRoupas_1.Pedido;
 import LojaDeRoupas_1.Factory.*;
@@ -15,17 +16,13 @@ import LojaDeRoupas_2.Builder.BuilderCarrinho;
 import LojaDeRoupas_2.Modelo.Carrinho;
 
 import LojaDeRoupas_3.Composite.*;
+import LojaDeRoupas_4.Facade.LojaFacade;
 
 public class Cliente {
 	public static void main(String [] args) {
 		//Factorys
-		CamisaFactory facCamisa = new CamisaFactory();
-		CalcaFactory facCalca = new CalcaFactory();
-		ChapeuFactory facChapeu = new ChapeuFactory();
-		ShortFactory facShort = new ShortFactory();
-		TenisFactory facTenis = new TenisFactory();
-		VestidoFactory facVestido = new VestidoFactory();
 		
+		/*
 		//pedidos
 		Pedido pedidoCamisa1 = new Pedido("vermelha", "M", "Masculino");
 		Pedido pedidoCalca1 = new Pedido("Preta","P", "Feminino");
@@ -47,7 +44,7 @@ public class Cliente {
 		Tenis tenis1 = facTenis.pedidoTenis("Esportivo", pedidoTenis1);
 		
 		Vestido vestido1 = facVestido.pedidoVestido("Longo", pedidoVestido1);
-		
+		*/
 		
 		/*   --- MILESTONE 1 mostrar os dados dos pedidos----
 		//Mostrar 
@@ -68,6 +65,7 @@ public class Cliente {
 		// --- MILESTONE 2 ---
 		
 		// Carrinhos de Compras
+		/*
 		Carrinho carrinho1 = new BuilderCarrinho("Calendario de Natal")
 				.addCamisa(camisa1)
 				.addCalca(calca1)
@@ -76,6 +74,8 @@ public class Cliente {
 		Carrinho carrinho2  = new BuilderCarrinho("brinde")
 				.addTenis(tenis1)
 				.fimPedido();
+				
+				*/
 		/* APRESENTACAO MILESTONE 2
 		//CARRINHO 1
 		System.out.println("---Carrinho1----");
@@ -98,18 +98,7 @@ public class Cliente {
 		
 		/*MILESTONE 3*/
 		//Composite
-		Pagamento [] itens = new Item[6];
-		String[][] arrayItens = carrinho1.getArrayCarrinho();
-		
-		
-		for(int i = 0; i< carrinho1.getQuantidadeItens();i++) {
-			itens[i] = new Item(arrayItens[i][0], Double.parseDouble(arrayItens[i][1]));
-		}
-		
-		Pagamento pagamento1 = new Cartao(carrinho1.getValorTotalCarrinho(),"Joaquim", "1829 9182 1928 2020", 1, Arrays.asList(itens) );
-		pagamento1.mostrarComprovante();
-		pagamento1.valorTotal();
-		
+		/*
 		
 		System.out.println("\nSEGUNDA COMPRA  \n");
 		
@@ -121,6 +110,38 @@ public class Cliente {
 		
 		Pagamento pagamento2 = new Dinheiro(carrinho2.getValorTotalCarrinho(),"Maria Jose", Arrays.asList(itens));
 		pagamento2.mostrarComprovante();
+		*/
+		
+		//MILESTONE 4
+		Scanner scan = new Scanner(System.in);
+		 
+		boolean start = true;
+		int op;
+		do {
+			LojaFacade.MenuPrincipal();
+			LojaFacade.setFabricasRoupas();
+			op = scan.nextInt();
+			
+			switch(op) {
+			case 1:
+				LojaFacade.cadastrarRoupa();
+				break;
+			case 2:
+				break;
+			case 3:
+				LojaFacade.realizarPedido();
+				break;
+			case 0:
+				start = false;
+				break;
+			default :
+				System.out.println("VALOR INVALIDO...");
+				break;
+			}
+			
+		}while(start);
+		System.out.println("PROGRAMA FINALIZADO ...");
+		
 	}
 }
 

@@ -25,8 +25,8 @@ public class Boleto implements Pagamento{
 	@Override
 	public void mostrarComprovante() {
 		System.out.println("*-------  COMPRA BOLETO -------*");
-		System.out.println("Cliente: "+ this.nomeCliente + "\n");
-		System.out.println("Data: " + dataCompra);
+		System.out.println("Cliente: "+ this.nomeCliente);
+		System.out.println("Data: " + dataCompra + "\n");
 		for(Pagamento items:pagamento){
             if(items != null) {items.mostrar();}
         }
