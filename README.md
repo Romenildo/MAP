@@ -1,13 +1,13 @@
 # MAP
-Repositorio da Matéria de Métodos avançados de Programação   
+Repositorio da Materia de Metodos avancados de Programacao   
 - Equipe: Simeone, Dennis, Romenildo e Leandro.
 
 ## Milestone 1   
 
-Padrões de projeto (design patterns) são soluções típicas para problemas comuns em projeto de software.   
-Cada padrão é como uma planta de construção que você pode customizar para resolver um problema de projeto particular em seu código.    
-Neste milestone, vocês irão descrever os objetivos, público e algumas funcionalidades de uma aplicação comercial;    
-bem como, realizar a entrega de um protótipo que atenda pelo menos um dos seguintes padrões de projeto: 
+Padroes de projeto (design patterns) sao solucoes tipicas para problemas comuns em projeto de software.   
+Cada padrao eh como uma planta de construcao que voce pode customizar para resolver um problema de projeto particular em seu codigo.    
+Neste milestone, voces irao descrever os objetivos, publico e algumas funcionalidades de uma aplicacao comercial;    
+bem como, realizar a entrega de um prototipo que atenda pelo menos um dos seguintes padroes de projeto: 
 - Factory Method;
 - Abstract Method.
 
@@ -18,7 +18,7 @@ Versao: 1.0.0
 
 ## Milestone 2   
 
-Neste milestone, vocês deverão entregar um protótipo da aplicação comercial que atenda pelo menos um dos seguintes padrões de projeto: 
+Neste milestone, voces deverao entregar um prototipo da aplicacao comercial que atenda pelo menos um dos seguintes padroes de projeto: 
 - Builder;(escolhido)
 - Prototype;
 - Singleton;
@@ -31,7 +31,7 @@ Versao: 2.0.0
 
 
 ## Milestone 3 
-Neste milestone, vocês deverão entregar um protótipo da aplicação comercial que atenda pelo menos um dos seguintes padrões de projeto: 
+Neste milestone, voces deverao entregar um prototipo da aplicacao comercial que atenda pelo menos um dos seguintes padroes de projeto: 
 - Adapter;
 - Brigde;
 - Composite;(Escolhido)
