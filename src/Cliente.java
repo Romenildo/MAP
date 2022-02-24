@@ -9,7 +9,6 @@ import LojaDeRoupas_1.Modelo.Calcas.Calca;
 import LojaDeRoupas_1.Modelo.Camisas.Camisa;
 import LojaDeRoupas_1.Modelo.Chapeus.Chapeu;
 import LojaDeRoupas_1.Modelo.Tenis.Tenis;
-import LojaDeRoupas_1.Modelo.Vestidos.Vestido;
 import LojaDeRoupas_1.Modelo.Shorts.Short;
 
 import LojaDeRoupas_2.Builder.BuilderCarrinho;
@@ -30,15 +29,7 @@ public class Cliente {
 		Camisa camisa1 = facCamisa.pedidoCamisa("Mangalonga", pedidoCamisa1);
 		Camisa camisa2 = facCamisa.pedidoCamisa("Regata", pedidoCamisa1);
 		
-		Calca calca1 = facCalca.pedidoCalca("Skinny", pedidoCalca1);
 		
-		Chapeu chapeu1 = facChapeu.pedidoChapeu("Fedora", pedidoChapeu1);
-		
-		Short short1 = facShort.pedidoShort("Praia", pedidoShort1);
-		
-		Tenis tenis1 = facTenis.pedidoTenis("Esportivo", pedidoTenis1);
-		
-		Vestido vestido1 = facVestido.pedidoVestido("Longo", pedidoVestido1);
 		*/
 		
 		/*   --- MILESTONE 1 mostrar os dados dos pedidos----
@@ -111,7 +102,7 @@ public class Cliente {
 		Scanner scan = new Scanner(System.in);
 		 
 		boolean start = true;
-		int pedidoTipo;
+		int pedidoTipo, pedidoSubTipo;
 		int op;
 		do {
 			LojaFacade.MenuPrincipal();
@@ -125,7 +116,10 @@ public class Cliente {
 				pedidoTipo = scan.nextInt();
 				}while(pedidoTipo > 5 || pedidoTipo < 0);
 				if(pedidoTipo== 0)break;
-				LojaFacade.cadastrarPedido(pedidoTipo);
+				
+				LojaFacade.MenuTiposRoupas(pedidoTipo);
+				pedidoSubTipo = scan.nextInt();
+				LojaFacade.cadastrarPedido(pedidoTipo, pedidoSubTipo);
 				break;
 			case 2:
 				break;

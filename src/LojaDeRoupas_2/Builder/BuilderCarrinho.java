@@ -5,7 +5,6 @@ import LojaDeRoupas_1.Modelo.Camisas.Camisa;
 import LojaDeRoupas_1.Modelo.Chapeus.Chapeu;
 import LojaDeRoupas_1.Modelo.Tenis.Tenis;
 import LojaDeRoupas_1.Modelo.Shorts.Short;
-import LojaDeRoupas_1.Modelo.Vestidos.Vestido;
 import LojaDeRoupas_2.Modelo.Carrinho;
 
 public class BuilderCarrinho {
@@ -18,7 +17,6 @@ public class BuilderCarrinho {
 	private Camisa camisa;
 	private Chapeu chapeu;
 	private Short shorts;
-	private Vestido vestido;
 	private Tenis tenis;
 	
 	public BuilderCarrinho(String brinde) {
@@ -42,16 +40,12 @@ public class BuilderCarrinho {
 		this.shorts = shorts;
 		return this;
 	}
-	public BuilderCarrinho addVestido(Vestido vestido) {
-		this.vestido = vestido;
-		return this;
-	}
 	public BuilderCarrinho addTenis(Tenis tenis) {
 		this.tenis = tenis;
 		return this;
 	}
 	
 	public Carrinho fimPedido() {
-		return new Carrinho(brinde, calca, camisa, chapeu, shorts, vestido, tenis);
+		return new Carrinho(brinde, calca, camisa, chapeu, shorts, tenis);
 	}
 }
