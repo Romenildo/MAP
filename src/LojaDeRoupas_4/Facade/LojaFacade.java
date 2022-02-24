@@ -39,10 +39,7 @@ public class LojaFacade {
 	
 	static Scanner scan = new Scanner(System.in);
 	
-	public static void MenuFabrica() {
-		
-	}
-	
+	//MENUS
 	public static void MenuPrincipal() {
 		System.out.println("---BEM VINDO A LOJA DE ROUPAS---");
 		System.out.println("1 - Cadastrar Roupa");
@@ -50,14 +47,6 @@ public class LojaFacade {
 		System.out.println("3 - Realizar Compra");
 		System.out.println("4 - Mostrar Historico");
 		System.out.println("0 - Fechar Programa");
-	}
-	
-	public static void setFabricasRoupas() {
-		facCamisa = new CamisaFactory();
-		facCalca = new CalcaFactory();
-		facChapeu = new ChapeuFactory();
-		facShort = new ShortFactory();
-		facTenis = new TenisFactory();
 	}
 	public static void MenuCadastrarRoupa() {
 		System.out.println("--- CADASTRAR ROUPA ---");
@@ -68,6 +57,7 @@ public class LojaFacade {
 		System.out.println("5 - Tenis");
 		System.out.println("0 - Voltar");
 	}
+	
 	public static void MenuTiposRoupas(int tipo) {
 		switch(tipo) {
 		case 1:
@@ -103,7 +93,17 @@ public class LojaFacade {
 			System.out.println("2 - Esportivo");
 			System.out.println("3 - Sapa Tenis");
 			break;
+		}
 	}
+	
+	//FUNCOES
+	
+	public static void setFabricasRoupas() {
+		facCamisa = new CamisaFactory();
+		facCalca = new CalcaFactory();
+		facChapeu = new ChapeuFactory();
+		facShort = new ShortFactory();
+		facTenis = new TenisFactory();
 	}
 	
 	public static void cadastrarPedido(int tipo, int tipoSub) {
@@ -148,12 +148,44 @@ public class LojaFacade {
 	}
 	
 	
-	public static void cadastrarRoupa() {
-		Pedido pedidoCamisa1 = new Pedido("vermelha", "M", "Masculino");
+	public static void verificarEstoque() {
+		System.out.println("--- ESTOQUE LOJA ---");
+		if(camisas!=null) {
+			System.out.println("CAMISAS: ");
+			for(Camisa camisa : camisas) {
+				System.out.println(camisa.getInfo());
+			}
+		}else if(calcas != null) {
+			System.out.println("CALCAS: ");
+			for(Calca calca : calcas) {
+				System.out.println(calca.getInfo());
+			}
+		}
+		else if(chapeus != null) {
+			System.out.println("CHAPEU: ");
+			for(Chapeu chapeu : chapeus) {
+				System.out.println(chapeu.getInfo());
+			}
+		}
+		else if(shorts != null) {
+			System.out.println("SHORT: ");
+			for(Short shorte : shorts) {
+				System.out.println(shorte.getInfo());
+			}
+		}
+		else if(tenis != null) {
+			System.out.println("TENIS: ");
+			for(Tenis tenisUni : tenis) {
+				System.out.println(tenisUni.getInfo());
+			}
+		}else {
+			System.out.println("Estoque Vazio");
+		}
 		
-
+		System.out.println("Pressione Enter para continuar:");
+		String pause = scan.nextLine();
+		
 	}
-	
 	
 	public static void realizarPedido() {
 		Carrinho carrinho1 = new BuilderCarrinho("Calendario de Natal")
@@ -161,7 +193,7 @@ public class LojaFacade {
 				.fimPedido();
 	}
 	
-	public static void realizarCompra(Carrinho carrinho1) {
+	public static void realizarPagamento(Carrinho carrinho1) {
 		Pagamento [] itens = new Item[6];
 		String[][] arrayItens = carrinho1.getArrayCarrinho();
 		
@@ -176,25 +208,26 @@ public class LojaFacade {
 		
 	}
 	
-	public static void MenuPagamento() {
-		//imprimir comprovante
-	}
 	public LojaFacade() {
+		
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static void instanciarDeposito() {
 		camisas = new ArrayList<Camisa>();
 		calcas = new ArrayList<Calca>();
 		chapeus = new ArrayList<Chapeu>();
 		shorts = new ArrayList<Short>();
 		tenis = new ArrayList<Tenis>();
-		
-		// TODO Auto-generated constructor stub
 	}
+	
 	
 	public static String retornarNomeRoupa(int tipo, int subTipo) {
 		
 		switch(tipo) {
 		case 1:
 			if(subTipo==1)return "MangaCurta";
-			if(subTipo==2)return "MangaLonga";
+			if(subTipo==2)return "Mangalonga";
 			if(subTipo==3)return "Polo";
 			if(subTipo==4)return "Regata";
 			break;

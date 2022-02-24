@@ -102,11 +102,13 @@ public class Cliente {
 		Scanner scan = new Scanner(System.in);
 		 
 		boolean start = true;
-		int pedidoTipo, pedidoSubTipo;
-		int op;
+		int pedidoTipo, pedidoSubTipo, op;
+		
+		LojaFacade.instanciarDeposito();
+		LojaFacade.setFabricasRoupas();
+		
 		do {
 			LojaFacade.MenuPrincipal();
-			LojaFacade.setFabricasRoupas();
 			op = scan.nextInt();
 			
 			switch(op) {
@@ -122,6 +124,7 @@ public class Cliente {
 				LojaFacade.cadastrarPedido(pedidoTipo, pedidoSubTipo);
 				break;
 			case 2:
+				LojaFacade.verificarEstoque();
 				break;
 			case 3:
 				LojaFacade.realizarPedido();
