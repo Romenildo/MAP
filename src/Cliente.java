@@ -23,12 +23,7 @@ public class Cliente {
 		//Factorys
 		
 		/*
-		//pedidos
-		Pedido pedidoCamisa1 = new Pedido("vermelha", "M", "Masculino");
-		Pedido pedidoCalca1 = new Pedido("Preta","P", "Feminino");
-		Pedido pedidoChapeu1 = new Pedido("Verde", "M", "Unissex");
-		Pedido pedidoShort1 = new Pedido("Azul", "EGG", "Masculino");
-		Pedido pedidoTenis1 = new Pedido("Branco", "42", "Masculino");
+		
 		Pedido pedidoVestido1 = new Pedido("Rosa", "M", "Feminino");
 		
 		//objetos
@@ -116,6 +111,7 @@ public class Cliente {
 		Scanner scan = new Scanner(System.in);
 		 
 		boolean start = true;
+		int pedidoTipo;
 		int op;
 		do {
 			LojaFacade.MenuPrincipal();
@@ -124,7 +120,12 @@ public class Cliente {
 			
 			switch(op) {
 			case 1:
-				LojaFacade.cadastrarRoupa();
+				LojaFacade.MenuCadastrarRoupa();
+				do {
+				pedidoTipo = scan.nextInt();
+				}while(pedidoTipo > 5 || pedidoTipo < 0);
+				if(pedidoTipo== 0)break;
+				LojaFacade.cadastrarPedido(pedidoTipo);
 				break;
 			case 2:
 				break;

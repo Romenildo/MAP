@@ -1,6 +1,7 @@
 package LojaDeRoupas_4.Facade;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 import LojaDeRoupas_1.Pedido;
 import LojaDeRoupas_1.Factory.CalcaFactory;
@@ -24,6 +25,8 @@ public class LojaFacade {
 	private static TenisFactory facTenis ;
 	private static VestidoFactory facVestido ;
 	
+	static Scanner scan = new Scanner(System.in);
+	
 	public static void MenuFabrica() {
 		
 	}
@@ -44,6 +47,46 @@ public class LojaFacade {
 		facShort = new ShortFactory();
 		facTenis = new TenisFactory();
 		facVestido = new VestidoFactory();
+	}
+	public static void MenuCadastrarRoupa() {
+		System.out.println("--- CADASTRAR ROUPA ---");
+		System.out.println("1 - Camisa");
+		System.out.println("2 - Calca");
+		System.out.println("3 - Chapeu");
+		System.out.println("4 - Short");
+		System.out.println("5 - Tenis");
+		System.out.println("0 - Voltar");
+	}
+	
+	public static void cadastrarPedido(int tipo) {
+		String cor, tamanho, sexo;
+		
+		System.out.println("Cor:");
+		cor = scan.nextLine();
+		System.out.println("Tamanho:");
+		tamanho = scan.nextLine();
+		System.out.println("Sexo:");
+		sexo = scan.nextLine();
+		
+		switch(tipo) {
+			case 1:
+				Pedido pedidoCamisa1 = new Pedido(cor, tamanho, sexo);
+				break;
+			case 2:
+				Pedido pedidoCalca1 = new Pedido(cor, tamanho, sexo);
+				break;
+			case 3:
+				Pedido pedidoChapeu1 = new Pedido(cor, tamanho, sexo);
+				break;
+			case 4:
+				Pedido pedidoShort1 =new Pedido(cor, tamanho, sexo);
+				break;
+			case 5:
+				Pedido pedidoTenis1 = new Pedido(cor, tamanho, sexo);
+				break;
+		}
+		System.out.println("PEDIDO CADASTRADO COM SUCESSO");
+
 	}
 	public static void cadastrarRoupa() {
 		Pedido pedidoCamisa1 = new Pedido("vermelha", "M", "Masculino");
