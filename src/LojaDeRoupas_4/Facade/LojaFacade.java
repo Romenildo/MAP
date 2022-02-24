@@ -19,7 +19,9 @@ import LojaDeRoupas_1.Modelo.Shorts.Short;
 
 import LojaDeRoupas_2.Builder.BuilderCarrinho;
 import LojaDeRoupas_2.Modelo.Carrinho;
+import LojaDeRoupas_3.Composite.Boleto;
 import LojaDeRoupas_3.Composite.Cartao;
+import LojaDeRoupas_3.Composite.Dinheiro;
 import LojaDeRoupas_3.Composite.Item;
 import LojaDeRoupas_3.Composite.Pagamento;
 
@@ -36,6 +38,8 @@ public class LojaFacade {
 	private static ArrayList<Short> shorts;
 	private static ArrayList<Tenis> tenis;
 	
+	private static ArrayList<Pagamento> pagamentos;
+ 	
 	
 	static Scanner scan = new Scanner(System.in);
 	
@@ -45,7 +49,7 @@ public class LojaFacade {
 		System.out.println("1 - Cadastrar Roupa");
 		System.out.println("2 - Verificar Estoque ");
 		System.out.println("3 - Realizar Compra");
-		System.out.println("4 - Mostrar Historico");
+		System.out.println("4 - Mostrar Vendas");
 		System.out.println("0 - Fechar Programa");
 	}
 	public static void MenuCadastrarRoupa() {
@@ -188,13 +192,34 @@ public class LojaFacade {
 	}
 	
 	public static void realizarPedido() {
-		Carrinho carrinho1 = new BuilderCarrinho("Calendario de Natal")
+		System.out.println("Digite Nome do cliente:");
+		String nomeCliente = scan.nextLine();
+		mostrarProdutos();
+		
+		//escolhe os itens
+		//adiciona itens ao carrinho
+		Carrinho carrinho = new BuilderCarrinho("Calendario de Natal").addCalca(null)
 				
 				.fimPedido();
+		
+		mostrarMenuPagamentos(carrinho, nomeCliente);
+			
+		
 	}
 	
-	public static void realizarPagamento(Carrinho carrinho1) {
+	public static void mostrarMenuPagamentos(Carrinho carrinho, String nomeCliente) {
+		System.out.println("--- METODOS DE PAGAMENTOS---");
+		System.out.println("1 - Cartao");
+		System.out.println("2 - Dinheiro");
+		System.out.println("3 - Boleto");
+		
+		String tipoPagamento = scan.nextLine();
+		realizarPagamento(carrinho, Integer.parseInt(tipoPagamento), nomeCliente);
+	}
+	
+	public static void realizarPagamento(Carrinho carrinho1, int tipoPagamento, String nomeCliente) {
 		Pagamento [] itens = new Item[6];
+		Pagamento pagamento;
 		String[][] arrayItens = carrinho1.getArrayCarrinho();
 		
 		
@@ -202,9 +227,49 @@ public class LojaFacade {
 			itens[i] = new Item(arrayItens[i][0], Double.parseDouble(arrayItens[i][1]));
 		}
 		
-		Pagamento pagamento1 = new Cartao(carrinho1.getValorTotalCarrinho(),"Joaquim", "1829 9182 1928 2020", 1, Arrays.asList(itens) );
-		pagamento1.mostrarComprovante();
-		pagamento1.valorTotal();
+		if(tipoPagamento == 1) {
+			
+			System.out.println("Digite numero: Cartao");
+			String numCartao = scan.nextLine();
+			
+			System.out.println("--- TIPO DO CARTAO ---");
+			System.out.println("1 - Debito");
+			System.out.println("2 - Credito");
+			String tipoCartao = scan.nextLine();
+			
+			System.out.println("Senha: ");
+			String senha = scan.nextLine();
+			
+			pagamento = new Cartao(carrinho1.getValorTotalCarrinho(),nomeCliente, numCartao, Integer.parseInt(tipoCartao), Arrays.asList(itens) );
+		}else if(tipoPagamento== 2) {
+			pagamento = new Dinheiro(carrinho1.getValorTotalCarrinho(),nomeCliente, Arrays.asList(itens) );
+
+		}else {
+			pagamento = new Boleto(carrinho1.getValorTotalCarrinho(),nomeCliente, Arrays.asList(itens) );
+
+		}
+		pagamentos.add(pagamento);
+		pagamento.mostrarComprovante();
+		pagamento.valorTotal();
+		
+	}
+	
+	public static void mostrarProdutos() {
+		System.out.println("--- PRODUTOS DISPONIVEIS ---");
+		
+	}
+	public static void mostrarVendas() {
+		System.out.println("--- LISTA DE VENDAS ---");
+		if(pagamentos!=null) {
+			for(Pagamento pag : pagamentos) {
+				pag.mostrarComprovante();
+			}
+		}else {
+			System.out.println("Nenhum pagamento Realizado");
+		}
+		System.out.println("Pressione Enter para continuar:");
+		String pause = scan.nextLine();
+		
 		
 	}
 	
@@ -219,6 +284,7 @@ public class LojaFacade {
 		chapeus = new ArrayList<Chapeu>();
 		shorts = new ArrayList<Short>();
 		tenis = new ArrayList<Tenis>();
+		pagamentos = new ArrayList<Pagamento>();
 	}
 	
 	

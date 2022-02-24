@@ -129,6 +129,9 @@ public class Cliente {
 			case 3:
 				LojaFacade.realizarPedido();
 				break;
+			case 4:
+				LojaFacade.mostrarVendas();
+				break;
 			case 0:
 				start = false;
 				break;
