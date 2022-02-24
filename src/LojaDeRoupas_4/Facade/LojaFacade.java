@@ -39,16 +39,18 @@ public class LojaFacade {
 	private static ArrayList<Tenis> tenis;
 	
 	private static ArrayList<Pagamento> pagamentos;
+	
+	private static int quantidadeEstoque;
  	
 	
-	static Scanner scan = new Scanner(System.in);
+	private static Scanner scan = new Scanner(System.in);
 	
 	//MENUS
 	public static void MenuPrincipal() {
 		System.out.println("---BEM VINDO A LOJA DE ROUPAS---");
 		System.out.println("1 - Cadastrar Roupa");
-		System.out.println("2 - Verificar Estoque ");
-		System.out.println("3 - Realizar Compra");
+		System.out.println("2 - Verificar Estoque");
+		System.out.println("3 - Realizar Compra(CONSTRUCAO)");
 		System.out.println("4 - Mostrar Vendas");
 		System.out.println("0 - Fechar Programa");
 	}
@@ -147,6 +149,7 @@ public class LojaFacade {
 				tenis.add(tenisUnidade);
 				break;
 		}
+		quantidadeEstoque++;
 		System.out.println("PEDIDO CADASTRADO COM SUCESSO");
 
 	}
@@ -154,40 +157,31 @@ public class LojaFacade {
 	
 	public static void verificarEstoque() {
 		System.out.println("--- ESTOQUE LOJA ---");
-		if(camisas!=null) {
-			System.out.println("CAMISAS: ");
+		
 			for(Camisa camisa : camisas) {
 				System.out.println(camisa.getInfo());
 			}
-		}else if(calcas != null) {
-			System.out.println("CALCAS: ");
 			for(Calca calca : calcas) {
 				System.out.println(calca.getInfo());
 			}
-		}
-		else if(chapeus != null) {
-			System.out.println("CHAPEU: ");
 			for(Chapeu chapeu : chapeus) {
 				System.out.println(chapeu.getInfo());
 			}
-		}
-		else if(shorts != null) {
-			System.out.println("SHORT: ");
 			for(Short shorte : shorts) {
 				System.out.println(shorte.getInfo());
 			}
-		}
-		else if(tenis != null) {
-			System.out.println("TENIS: ");
 			for(Tenis tenisUni : tenis) {
 				System.out.println(tenisUni.getInfo());
 			}
-		}else {
-			System.out.println("Estoque Vazio");
-		}
+			
+			if(quantidadeEstoque <= 0) {
+				quantidadeEstoque = 0;
+				System.out.println("ESTOQUE VAZIO");
+			}else {
+				System.out.println("Quantidade total no estoque: " + quantidadeEstoque);
+			}
 		
-		System.out.println("Pressione Enter para continuar:");
-		String pause = scan.nextLine();
+		pause();
 		
 	}
 	
@@ -196,14 +190,16 @@ public class LojaFacade {
 		String nomeCliente = scan.nextLine();
 		mostrarProdutos();
 		
+		// IMPLEMENTACAO DOS PROXIMOS MILESTONES
 		//escolhe os itens
 		//adiciona itens ao carrinho
-		Carrinho carrinho = new BuilderCarrinho("Calendario de Natal").addCalca(null)
-				
-				.fimPedido();
+		Carrinho carrinho = new BuilderCarrinho("Calendario de Natal").fimPedido();
 		
 		mostrarMenuPagamentos(carrinho, nomeCliente);
-			
+	}
+	
+	public static void mostrarProdutos() {
+		System.out.println("--- PRODUTOS DISPONIVEIS ---");
 		
 	}
 	
@@ -249,15 +245,11 @@ public class LojaFacade {
 
 		}
 		pagamentos.add(pagamento);
-		pagamento.mostrarComprovante();
 		pagamento.valorTotal();
+		pause();
 		
 	}
 	
-	public static void mostrarProdutos() {
-		System.out.println("--- PRODUTOS DISPONIVEIS ---");
-		
-	}
 	public static void mostrarVendas() {
 		System.out.println("--- LISTA DE VENDAS ---");
 		if(pagamentos!=null) {
@@ -267,15 +259,15 @@ public class LojaFacade {
 		}else {
 			System.out.println("Nenhum pagamento Realizado");
 		}
-		System.out.println("Pressione Enter para continuar:");
-		String pause = scan.nextLine();
-		
+		pause();
 		
 	}
+
+	//FUNCIONALIDADES
 	
-	public LojaFacade() {
-		
-		// TODO Auto-generated constructor stub
+	public static void pause() {
+		System.out.println("Pressione Enter para continuar:");
+		String pause = scan.nextLine();
 	}
 	
 	public static void instanciarDeposito() {
@@ -285,6 +277,7 @@ public class LojaFacade {
 		shorts = new ArrayList<Short>();
 		tenis = new ArrayList<Tenis>();
 		pagamentos = new ArrayList<Pagamento>();
+		quantidadeEstoque = 0;
 	}
 	
 	
