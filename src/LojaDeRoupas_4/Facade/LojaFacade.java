@@ -54,6 +54,7 @@ public class LojaFacade {
 		System.out.println("4 - Mostrar Vendas");
 		System.out.println("0 - Fechar Programa");
 	}
+	
 	public static void MenuCadastrarRoupa() {
 		System.out.println("--- CADASTRAR ROUPA ---");
 		System.out.println("1 - Camisa");

@@ -1,23 +1,11 @@
 
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
-import LojaDeRoupas_1.Pedido;
-import LojaDeRoupas_1.Factory.*;
-import LojaDeRoupas_1.Modelo.Calcas.Calca;
-import LojaDeRoupas_1.Modelo.Camisas.Camisa;
-import LojaDeRoupas_1.Modelo.Chapeus.Chapeu;
-import LojaDeRoupas_1.Modelo.Tenis.Tenis;
-import LojaDeRoupas_1.Modelo.Shorts.Short;
-
-import LojaDeRoupas_2.Builder.BuilderCarrinho;
-import LojaDeRoupas_2.Modelo.Carrinho;
-
-import LojaDeRoupas_3.Composite.*;
 import LojaDeRoupas_4.Facade.LojaFacade;
 
-public class Cliente {
+public class Aplicacao {
 	
 	private static Scanner scan = new Scanner(System.in);
 	 
