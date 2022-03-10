@@ -2,8 +2,15 @@ package LojaDeRoupas_4.Facade;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
+
+import LojaDeRoupas_5.Command.PagamentoBoleto;
+import LojaDeRoupas_5.Command.PagamentoCartao;
+
+import LojaDeRoupas_5.Command.PagamentoCommand;
+import LojaDeRoupas_5.Command.PagamentoDinheiro;
 import LojaDeRoupas_1.Pedido;
 import LojaDeRoupas_1.Factory.CalcaFactory;
 import LojaDeRoupas_1.Factory.CamisaFactory;
@@ -41,22 +48,23 @@ public class LojaFacade {
 	private static ArrayList<Pagamento> pagamentos;
 	
 	private static int quantidadeEstoque;
+	private static Carrinho carrinhoAtual = null;
  	
 	
 	private static Scanner scan = new Scanner(System.in);
 	
 	//MENUS
 	public static void MenuPrincipal() {
-		System.out.println("---BEM VINDO A LOJA DE ROUPAS---");
-		System.out.println("1 - Cadastrar Roupa");
-		System.out.println("2 - Verificar Estoque");
-		System.out.println("3 - Realizar Compra(CONSTRUCAO)");
+		System.out.println("---BEM VINDO A LOJA DE ROUPAS ONLINE---");
+		System.out.println("1 - Cadastrar Compra");
+		System.out.println("2 - Verificar estoque de compras");
+		System.out.println("3 - Finalizar Pagamento");
 		System.out.println("4 - Mostrar Vendas");
 		System.out.println("0 - Fechar Programa");
 	}
 	
 	public static void MenuCadastrarRoupa() {
-		System.out.println("--- CADASTRAR ROUPA ---");
+		System.out.println("--- ITENS PARA COMPRA ---");
 		System.out.println("1 - Camisa");
 		System.out.println("2 - Calca");
 		System.out.println("3 - Chapeu");
@@ -68,34 +76,34 @@ public class LojaFacade {
 	public static void MenuTiposRoupas(int tipo) {
 		switch(tipo) {
 		case 1:
-			System.out.println("--- TIPOS CAMISAS ---");
+			System.out.println("--- MODELOS CAMISAS ---");
 			System.out.println("1 - MangaCurta");
 			System.out.println("2 - MangaLonga");
 			System.out.println("3 - Polo");
 			System.out.println("4 - Regata");
 			break;
 		case 2:
-			System.out.println("--- TIPOS CALCAS ---");
+			System.out.println("--- MODELOS CALCAS ---");
 			System.out.println("1 - Jeans");
 			System.out.println("2 - Moleton");
 			System.out.println("3 - Skinny");
 			System.out.println("4 - Social");
 			break;
 		case 3:
-			System.out.println("--- TIPOS CHAPEUS ---");
+			System.out.println("--- MODELOS CHAPEUS ---");
 			System.out.println("1 - Boina");
 			System.out.println("2 - Bone");
 			System.out.println("3 - Cartola");
 			System.out.println("4 - Fedora");
 			break;
 		case 4:
-			System.out.println("--- TIPOS SHORTS ---");
+			System.out.println("--- MODELOS SHORTS ---");
 			System.out.println("1 - Bermuda");
 			System.out.println("2 - Elastico");
 			System.out.println("3 - Praia");
 			break;
 		case 5:
-			System.out.println("--- TIPOS TENIS ---");
+			System.out.println("--- MODELOS TENIS ---");
 			System.out.println("1 - Cano Alto");
 			System.out.println("2 - Esportivo");
 			System.out.println("3 - Sapa Tenis");
@@ -115,6 +123,7 @@ public class LojaFacade {
 	
 	public static void cadastrarPedido(int tipo, int tipoSub) {
 		String cor, tamanho, sexo;
+		Carrinho carrinho = null;
 		
 		System.out.println("Cor:");
 		cor = scan.nextLine();
@@ -128,36 +137,43 @@ public class LojaFacade {
 				Pedido pedidoCamisa = new Pedido(cor, tamanho, sexo);
 				Camisa camisa = facCamisa.pedidoCamisa( retornarNomeRoupa(tipo, tipoSub), pedidoCamisa);
 				camisas.add(camisa);
+				carrinho = new BuilderCarrinho("Calendario de Natal").addCamisa(camisa).fimPedido();
 				break;
 			case 2:
 				Pedido pedidoCalca = new Pedido(cor, tamanho, sexo);
 				Calca calca = facCalca.pedidoCalca(retornarNomeRoupa(tipo, tipoSub), pedidoCalca);
 				calcas.add(calca);
+				carrinho = new BuilderCarrinho("Calendario de Natal").addCalca(calca).fimPedido();
 				break;
 			case 3:
 				Pedido pedidoChapeu = new Pedido(cor, tamanho, sexo);
 				Chapeu chapeu = facChapeu.pedidoChapeu(retornarNomeRoupa(tipo, tipoSub), pedidoChapeu);
 				chapeus.add(chapeu);
+				carrinho = new BuilderCarrinho("Calendario de Natal").addChapeu(chapeu).fimPedido();
 				break;
 			case 4:
 				Pedido pedidoShort =new Pedido(cor, tamanho, sexo);
 				Short shorte = facShort.pedidoShort(retornarNomeRoupa(tipo, tipoSub), pedidoShort);
 				shorts.add(shorte);
+				carrinho = new BuilderCarrinho("Calendario de Natal").addShort(shorte).fimPedido();
 				break;
 			case 5:
 				Pedido pedidoTenis = new Pedido(cor, tamanho, sexo);
 				Tenis tenisUnidade = facTenis.pedidoTenis(retornarNomeRoupa(tipo, tipoSub), pedidoTenis);
 				tenis.add(tenisUnidade);
+				carrinho = new BuilderCarrinho("Calendario de Natal").addTenis(tenisUnidade).fimPedido();
 				break;
 		}
+		carrinhoAtual = carrinho;
 		quantidadeEstoque++;
-		System.out.println("PEDIDO CADASTRADO COM SUCESSO");
+		System.out.println("COMPRA CADASTRADA COM SUCESSO");
+		System.out.println("VA PARA AREA DE PAGAMENTO...");
 
 	}
 	
 	
 	public static void verificarEstoque() {
-		System.out.println("--- ESTOQUE LOJA ---");
+		System.out.println("--- PRODUTOS PARA ENVIO ---");
 		
 			for(Camisa camisa : camisas) {
 				System.out.println(camisa.getInfo());
@@ -186,22 +202,35 @@ public class LojaFacade {
 		
 	}
 	
-	public static void realizarPedido() {
+	public static void realizarPagamento() {
+		if(carrinhoAtual == null || quantidadeEstoque<=0) {
+			System.out.println("NENHUMA COMPRA CADASTRADA PARA FINALIZAR!!");
+			return;
+		}
+		
 		System.out.println("Digite Nome do cliente:");
 		String nomeCliente = scan.nextLine();
-		mostrarProdutos();
 		
-		// IMPLEMENTACAO DOS PROXIMOS MILESTONES
-		//escolhe os itens
-		//adiciona itens ao carrinho
-		Carrinho carrinho = new BuilderCarrinho("Calendario de Natal").fimPedido();
+		Carrinho carrinho = carrinhoAtual;
 		
 		mostrarMenuPagamentos(carrinho, nomeCliente);
 	}
 	
-	public static void mostrarProdutos() {
-		System.out.println("--- PRODUTOS DISPONIVEIS ---");
-		
+	
+	public static void gerarNotaFiscal(Carrinho carrinho1,PagamentoCommand forma1) {
+		 Random gerador = new Random();
+	     int idNotaFiscal = gerador.nextInt(1000) + 1;
+	     String compra = carrinho1.getItensCarrinho();
+	     float preco = (float) carrinho1.getValorTotalCarrinho();
+	     PagamentoCommand forma = forma1;
+	     mostrarNotaFiscal(idNotaFiscal, compra, preco);
+	}
+	
+	public static void mostrarNotaFiscal(int id, String compra, float preco) {
+		System.out.println("Nota Fiscal da Compra");
+		System.out.println("ID:" + id);
+		System.out.println("Produtos: "+compra);
+		System.out.println("Valor: " + preco);
 	}
 	
 	public static void mostrarMenuPagamentos(Carrinho carrinho, String nomeCliente) {
@@ -218,6 +247,7 @@ public class LojaFacade {
 		Pagamento [] itens = new Item[6];
 		Pagamento pagamento;
 		String[][] arrayItens = carrinho1.getArrayCarrinho();
+		PagamentoCommand forma = null;
 		
 		
 		for(int i = 0; i< carrinho1.getQuantidadeItens();i++) {
@@ -238,15 +268,20 @@ public class LojaFacade {
 			String senha = scan.nextLine();
 			
 			pagamento = new Cartao(carrinho1.getValorTotalCarrinho(),nomeCliente, numCartao, Integer.parseInt(tipoCartao), Arrays.asList(itens) );
+			forma = new PagamentoCartao();
 		}else if(tipoPagamento== 2) {
 			pagamento = new Dinheiro(carrinho1.getValorTotalCarrinho(),nomeCliente, Arrays.asList(itens) );
+			forma = new PagamentoDinheiro();
 
 		}else {
 			pagamento = new Boleto(carrinho1.getValorTotalCarrinho(),nomeCliente, Arrays.asList(itens) );
+			 forma = new PagamentoBoleto();
 
 		}
 		pagamentos.add(pagamento);
 		pagamento.valorTotal();
+		gerarNotaFiscal(carrinho1, forma);
+		carrinhoAtual = null;
 		pause();
 		
 	}

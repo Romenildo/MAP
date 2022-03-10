@@ -11,7 +11,7 @@ public class Aplicacao {
 	 
 	public static void main(String [] args) {
 
-		//MILESTONE 4
+		//MILESTONE 5
 		boolean start = true;
 		int pedidoTipo, pedidoSubTipo, op;
 		
@@ -38,7 +38,7 @@ public class Aplicacao {
 				LojaFacade.verificarEstoque();
 				break;
 			case 3:
-				LojaFacade.realizarPedido();
+				LojaFacade.realizarPagamento();
 				break;
 			case 4:
 				LojaFacade.mostrarVendas();

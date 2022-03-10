@@ -53,3 +53,15 @@ Implementacao dos menus e funcao de todas as funcionalidades utilizando o metodo
 pasta: LojaDeRoupas_4
 Versao: 4.0.0
 
+## Milestone 5
+Neste milestone, vocês deverao entregar um protótipo da aplicacao comercial que atenda pelo menos um dos seguintes padroes de projeto: 
+-  Chain of Responsability;
+- Memento;
+- Command;(Escolhido)
+- Interator;
+
+Implementacao do sistema de nota fiscal do metodo de pagamento entra cartao, dinheiro e boleto. Utilizando o padrao de projeto do Command.
+
+pasta: LojaDeRoupas_5
+Versao: 5.0.0
+
