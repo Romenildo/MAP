@@ -43,7 +43,7 @@ pasta: LojaDeRoupas_3
 Versao: 3.0.0
 
 ## Milestone 4
-Neste milestone, vocês deverão entregar um protótipo da aplicação comercial que atenda pelo menos um dos seguintes padrões de projeto: 
+Neste milestone, vocÃªs deverÃ£o entregar um protÃ³tipo da aplicaÃ§Ã£o comercial que atenda pelo menos um dos seguintes padrÃµes de projeto: 
 - Facade; (Escolhido)
 - Mediator;
 - Proxy.
@@ -54,7 +54,7 @@ pasta: LojaDeRoupas_4
 Versao: 4.0.0
 
 ## Milestone 5
-Neste milestone, vocês deverao entregar um protótipo da aplicacao comercial que atenda pelo menos um dos seguintes padroes de projeto: 
+Neste milestone, vocÃªs deverao entregar um protÃ³tipo da aplicacao comercial que atenda pelo menos um dos seguintes padroes de projeto: 
 -  Chain of Responsability;
 - Memento;
 - Command;(Escolhido)
@@ -67,13 +67,13 @@ Versao: 5.0.0
 
 
 ## Milestone 6
-Neste milestone, vocês deverao entregar um protótipo da aplicacao comercial que atenda pelo menos um dos seguintes padroes de projeto: 
+Neste milestone, vocÃªs deverao entregar um protÃ³tipo da aplicacao comercial que atenda pelo menos um dos seguintes padroes de projeto: 
 - Observer;(Escolhido)
 - State;
 - Strategy;
 - Template Methody.
 
-Implementacao do sistem de notificacao ao cliente e entregadora utiliando o padrao de projeto Observer;
+Implementacao do sistema de notificacao ao cliente e entregadora utilizando o padrao de projeto Observer;
 
 pasta: LojaDeRoupas_6
 Versao: 6.0.0
