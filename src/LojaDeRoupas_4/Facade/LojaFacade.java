@@ -11,6 +11,9 @@ import LojaDeRoupas_5.Command.PagamentoCartao;
 
 import LojaDeRoupas_5.Command.PagamentoCommand;
 import LojaDeRoupas_5.Command.PagamentoDinheiro;
+import LojaDeRoupas_6.Observer.Cliente;
+import LojaDeRoupas_6.Observer.Entregadora;
+import LojaDeRoupas_6.Observer.Gerente;
 import LojaDeRoupas_1.Pedido;
 import LojaDeRoupas_1.Factory.CalcaFactory;
 import LojaDeRoupas_1.Factory.CamisaFactory;
@@ -57,9 +60,10 @@ public class LojaFacade {
 	public static void MenuPrincipal() {
 		System.out.println("---BEM VINDO A LOJA DE ROUPAS ONLINE---");
 		System.out.println("1 - Cadastrar Compra");
-		System.out.println("2 - Verificar estoque de compras");
-		System.out.println("3 - Finalizar Pagamento");
+		System.out.println("2 - Finalizar Pagamento");
+		System.out.println("3 - Verificar estoque de compras");
 		System.out.println("4 - Mostrar Vendas");
+		System.out.println("5 - Enviar Notificacao");
 		System.out.println("0 - Fechar Programa");
 	}
 	
@@ -111,6 +115,12 @@ public class LojaFacade {
 		}
 	}
 	
+	public static void menuNotificacao() {
+		System.out.println("--- NOTIFICACOES PARA: ---");
+		System.out.println("1 - Cliente");
+		System.out.println("2 - Entregadora");
+	}
+	
 	//FUNCOES
 	
 	public static void setFabricasRoupas() {
@@ -119,6 +129,37 @@ public class LojaFacade {
 		facChapeu = new ChapeuFactory();
 		facShort = new ShortFactory();
 		facTenis = new TenisFactory();
+	}
+	
+	public static void notificarPedido() {
+		Gerente gerente = new Gerente();
+		gerente.adicionarObserver(new Cliente());
+		gerente.adicionarObserver(new Entregadora());
+		gerente.setStatus(true);
+		
+	}
+	
+	public static void enviarNotificacao() {
+		Gerente gerente = new Gerente();
+		menuNotificacao();
+		System.out.println("Escolha:");
+		String opNotificacao = scan.nextLine();
+		String mensagem;
+		switch(Integer.parseInt(opNotificacao)) {
+			case 1:
+				System.out.println("mensagem ao cliente: ");
+				mensagem = scan.nextLine();
+				gerente.enviarObserver(new Cliente().notificacaoEditPedido(true, mensagem));
+				break;
+			case 2:
+				System.out.println("mensagem a entregadora: ");
+				mensagem = scan.nextLine();
+				gerente.enviarObserver(new Entregadora().notificacaoEditPedido(true, mensagem));
+				break;
+		default:
+			System.out.println("Valor invalido");
+		}
+		
 	}
 	
 	public static void cadastrarPedido(int tipo, int tipoSub) {
@@ -282,6 +323,7 @@ public class LojaFacade {
 		pagamento.valorTotal();
 		gerarNotaFiscal(carrinho1, forma);
 		carrinhoAtual = null;
+		notificarPedido();
 		pause();
 		
 	}

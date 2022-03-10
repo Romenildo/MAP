@@ -65,3 +65,16 @@ Implementacao do sistema de nota fiscal do metodo de pagamento entra cartao, din
 pasta: LojaDeRoupas_5
 Versao: 5.0.0
 
+
+## Milestone 6
+Neste milestone, vocês deverao entregar um protótipo da aplicacao comercial que atenda pelo menos um dos seguintes padroes de projeto: 
+- Observer;(Escolhido)
+- State;
+- Strategy;
+- Template Methody.
+
+Implementacao do sistem de notificacao ao cliente e entregadora utiliando o padrao de projeto Observer;
+
+pasta: LojaDeRoupas_6
+Versao: 6.0.0
+

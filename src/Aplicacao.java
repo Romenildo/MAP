@@ -35,13 +35,16 @@ public class Aplicacao {
 				LojaFacade.cadastrarPedido(pedidoTipo, pedidoSubTipo);
 				break;
 			case 2:
-				LojaFacade.verificarEstoque();
+				LojaFacade.realizarPagamento();
 				break;
 			case 3:
-				LojaFacade.realizarPagamento();
+				LojaFacade.verificarEstoque();
 				break;
 			case 4:
 				LojaFacade.mostrarVendas();
+				break;
+			case 5:
+				LojaFacade.enviarNotificacao();
 				break;
 			case 0:
 				start = false;
